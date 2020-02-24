@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Vote Better</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,41 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Vote Better</h1>
+      <p id='auth-notice' class='text-center'></p>
+
+        <form id='sign-in' class='border text-center'>
+          <fieldset>
+            <legend class='text-center'>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email"><br>
+            <input type="password" name="credentials[password]" placeholder="Password"><br>
+            <input type="submit" value="Sign in!">
+          </fieldset>
+        </form>
+
+        <form id="sign-up" class="border text-center">
+          <fieldset>
+            <legend>Not a member? Sign up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email"><br>
+            <input type="password" name="credentials[password]" placeholder="Password"><br>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
+            <input type="submit" value="Sign up new user">
+          </fieldset>
+        </form>
+
+        <form id="change-password" class="text-center border">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password"><br>
+            <input type="password" name="passwords[new]" placeholder="New Password"><br>
+            <input type="submit" value="Change Password!">
+          </fieldset>
+        </form>
+
+        <form id="sign-out" class="border text-center sign-out">
+          <fieldset>
+            <input type="submit" value="Sign out">
+          </fieldset>
+        </form>
     </body>
 </html>
