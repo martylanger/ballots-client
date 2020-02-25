@@ -1,3 +1,23 @@
+{
+  // const thisElection = {
+  //   "election": {
+  //     "id": ,
+  //     "voting_method": ,
+  //     "option1": ,
+  //     "option2": ,
+  //     "option3": ,
+  //     "option4": ,
+  //     "option5": ,
+  //     "option6": ,
+  //     "option7": ,
+  //     "option8": ,
+  //     "option9": ,
+  //     "results":,
+  //     "user":{"id":1,"email":"james@polk"}
+  //   }
+  // }  console.log(election)
+}
+
 ### Scripts
 
 Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
