@@ -27,6 +27,7 @@ const onShowElection = function (event) {
     store.showIndex = false
   }
   if (id) {
+    store.id = id
     api.show(id)
       .then(ui.onShowSuccess)
       .catch(ui.onShowFailure)
@@ -54,7 +55,6 @@ const onShowElection = function (event) {
 // }
 
 const onUpdateElection = function (event) {
-  // prevent default submit action to stop the page from refreshing
   event.preventDefault()
   const data =
   {
@@ -102,9 +102,18 @@ const onCreateElection = function (event) {
     .catch(ui.onCreateFailure)
 }
 
+const onDeleteElection = function (event) {
+  event.preventDefault()
+  const id = store.id
+  api.destroy(id)
+    .then(ui.onDeleteSuccess)
+    .catch(ui.onDeleteFailure)
+}
+
 module.exports = {
   onShowElection,
   onIndexElections,
   onUpdateElection,
-  onCreateElection
+  onCreateElection,
+  onDeleteElection
 }

@@ -4,12 +4,27 @@ const store = require('./../store.js')
 
 const displayElection = function (data) {
   console.log('running displayElection')
+  $('#name').text('')
+  $('#voting_method').text('')
+  $('#option1').text('')
+  $('#option2').text('')
+  $('#option3').text('')
+  $('#option4').text('')
+  $('#option5').text('')
+  $('#option6').text('')
+  $('#option7').text('')
+  $('#option8').text('')
+  $('#option9').text('')
+  $('#results').text('')
+  $('form').trigger('reset')
   $('#auth-notice').hide()
   $('#notice2').hide()
   $('.expand').hide()
-  $('form').trigger('reset')
+  $('#index').hide()
+  $('#expansion').hide()
+  $('#election-display').show()
   $('#name').text('Name: ' + data.election.name)
-  if (data.election.voting_method) { $('#voting-method').text('Voting method: ' + data.election.voting_method) }
+  if (data.election.voting_method) { $('#voting_method').text('Voting method: ' + data.election.voting_method) }
   if (data.election.option1) { $('#option1').text('Option 1: ' + data.election.option1) }
   if (data.election.option2) { $('#option2').text('Option 2: ' + data.election.option2) }
   if (data.election.option3) { $('#option3').text('Option 3: ' + data.election.option3) }
@@ -26,6 +41,7 @@ const onShowSuccess = function (responseData) {
   console.log('running onShowSuccess')
   $('#notice').text("Here's your election!")
   displayElection(responseData)
+  $('form').trigger('reset')
 }
 
 const onIndexSuccess = function (responseData) {
@@ -33,45 +49,67 @@ const onIndexSuccess = function (responseData) {
   store.elections = responseData.elections
   $('#auth-notice').hide()
   $('#notice2').hide()
+  $('#election-display').hide()
   $('#notice').html('Here are your elections!')
-  for (let i = 0; i < 10; i++) {
-    if (responseData.elections[i]) {
-      $('#name').append(
-        "<div id='" + responseData.elections[i].id + "' class='shower'>" + responseData.elections[i].name + " (id: " + responseData.elections[i].id + ")</div>"
-      )
-      $('.expand').show()
-    } else {
-      $('.expand').hide()
+  $('#index').show()
+  // If the index is expandable, show the expand button
+  if (!store.notALot) {
+    $('.expand').show()
+  }
+  // If the index hasn't been populated yet
+  if (!store.indexed) {
+    store.indexed = true
+    // Display 10 newest elections
+    for (let i = 0; i < 10; i++) {
+      if (responseData.elections[i]) {
+        $('#index').append(
+          "<div id='" + responseData.elections[i].id + "' class='shower'>" + responseData.elections[i].name + " (id: " + responseData.elections[i].id + ")</div>"
+        )
+        $('.expand').show()
+      } else {
+        $('.expand').hide()
+        store.notALot = true
+      }
     }
   }
-  $('form').trigger('reset')
-  console.log(responseData.elections)
 }
 
 const onIndexExpand = function () {
   console.log('running onIndexExpand')
   $('.expand').hide()
-  for (let i = 10; i < store.elections.length; i++) {
-    $('#name').append('<div>' + store.elections[i].name + ' (id: ' + store.elections[i].id + ') </div>')
+  $('#expansion').show()
+  if (!store.expanded) {
+    for (let i = 10; i < store.elections.length; i++) {
+      $('#expansion').append(
+        "<div id='" + store.elections[i].id + "' class='shower'>" + store.elections[i].name + " (id: " + store.elections[i].id + ")</div>"
+      )
+    }
   }
+  store.expanded = true
 }
 
 const onUpdateSuccess = function (responseData) {
   console.log('running onUpdateSuccess')
-  $('#notice').html('You updated your election!')
+  $('#notice').text('You updated your election!')
   displayElection(responseData)
 }
 
 const onUpdateFailure = function (responseData) {
   console.log('running onUpdateFailure')
-  $('#notice').html("Your update didn't work.")
+  $('#notice').text("Your update didn't work.")
   $('form').trigger('reset')
+}
+
+const onCreateClick = function (event) {
+  event.preventDefault()
+  $('#election-input').show()
 }
 
 const onCreateSuccess = function (responseData) {
   console.log('running onCreateSuccess')
   $('#notice').text('You created an election!')
   displayElection(responseData)
+  $('#election-input').hide()
 }
 
 const onCreateFailure = function (responseData) {
@@ -80,12 +118,19 @@ const onCreateFailure = function (responseData) {
   $('form').trigger('reset')
 }
 
+const onDeleteSuccess = function () {
+  console.log('running onDeleteSuccess')
+  $('#notice').text('You deleted an election!')
+}
+
 module.exports = {
   onShowSuccess,
   onIndexSuccess,
   onIndexExpand,
   onUpdateSuccess,
   onUpdateFailure,
+  onCreateClick,
   onCreateSuccess,
-  onCreateFailure
+  onCreateFailure,
+  onDeleteSuccess
 }

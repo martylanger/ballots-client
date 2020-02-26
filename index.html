@@ -16,90 +16,106 @@
       <div id='auth-notice' class='notices text-center'></div>
       <div id='notice' class='notices text-center'></div>
       <div id='notice2' class='notices text-center'></div>
-      <div id='election-display' class='notices election'>
-        <div id='name' class='election text-center'></div>
-        <input id='expand-index' class='expand' type='button' value='See all'>
-        <div id='voting_method' class='election text-center'></div>
-        <div id='option1' class='election text-center'></div>
-        <div id='option2' class='election text-center'></div>
-        <div id='option3' class='election text-center'></div>
-        <div id='option4' class='election text-center'></div>
-        <div id='option5' class='election text-center'></div>
-        <div id='option6' class='election text-center'></div>
-        <div id='option7' class='election text-center'></div>
-        <div id='option8' class='election text-center'></div>
-        <div id='option9' class='election text-center'></div>
-        <div id='results' class='election text-center'></div>
+
+      <div class='container'>
+        <div class='row'>
+
+          <div class='col-4 border third'>
+            <form id='sign-in' class='signed-out text-center'>
+              <fieldset>
+                <legend class='text-center'>Sign in!</legend>
+                <input type="text" name="credentials[email]" placeholder="Email"><br>
+                <input type="password" name="credentials[password]" placeholder="Password"><br>
+                <input type="submit" value="Sign in!">
+              </fieldset>
+            </form>
+            <form id="sign-up" class="signed-out text-center">
+              <fieldset>
+                <legend>Not a member? Sign up!</legend>
+                <input type="text" name="credentials[email]" placeholder="Email"><br>
+                <input type="password" name="credentials[password]" placeholder="Password"><br>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
+                <input type="submit" value="Sign up new user">
+              </fieldset>
+            </form>
+            <form id="change-password" class="signed-in text-center">
+              <fieldset>
+                <legend>Change password</legend>
+                <input type="password" name="passwords[old]" placeholder="Old Password"><br>
+                <input type="password" name="passwords[new]" placeholder="New Password"><br>
+                <input type="submit" value="Change Password!">
+              </fieldset>
+            </form>
+            <form id="sign-out" class="text-center signed-in sign-out">
+              <fieldset>
+                <input type="submit" value="Sign out">
+              </fieldset>
+            </form>
+          </div>
+
+          <div class='col-4 border third'>
+            <form id='index-button' class='signed-in text-center'>
+              <fieldset>
+                <input type='button' class='button' value='My Elections'>
+              </fieldset>
+            </form>
+            <form id='create-click' class='signed-in text-center'>
+              <fieldset>
+                <input type='button' class='button' value='New Election'>
+              </fieldset>
+            </form>
+            <form id='election-input' class='examine text-center'>
+              <fieldset>
+                <legend class='text-center'>Election name</legend>
+                <input type="text" name="name" placeholder="Election"><br>
+                <legend class='text-center'>Voting method</legend>
+                <input type="text" name="voting_method" placeholder="Voting method"><br>
+                <legend class='text-center'>Options to choose from</legend>
+                <input type="text" name="option1" placeholder="Option1"><br>
+                <input type="text" name="option2" placeholder="Option2"><br>
+                <input type="text" name="option3" placeholder="Option3"><br>
+                <input type="text" name="option4" placeholder="Option4"><br>
+                <input type="text" name="option5" placeholder="Option5"><br>
+                <input type="text" name="option6" placeholder="Option6"><br>
+                <input type="text" name="option7" placeholder="Option7"><br>
+                <input type="text" name="option8" placeholder="Option8"><br>
+                <input type="text" name="option9" placeholder="Option9"><br>
+                <input type="submit" value="Submit">
+              </fieldset>
+            </form>
+            <form id='show' class='signed-in text-center'>
+              <fieldset>
+                <legend class='text-center'>Show</legend>
+                <input type="text" name="id" placeholder="##"><br>
+                <input type="submit" value="Submit">
+              </fieldset>
+            </form>
+          </div>
+
+          <div class='col-4 border third'>
+            <div id='index'>
+            </div>
+            <div id='expansion'>
+            </div>
+            <input id='expand-index' class='expand button' type='button' value='See all'>
+            <div id='election-display' class='election'>
+              <div id='name' class='election text-center'></div>
+              <div id='voting_method' class='election text-center'></div>
+              <div id='option1' class='election text-center'></div>
+              <div id='option2' class='election text-center'></div>
+              <div id='option3' class='election text-center'></div>
+              <div id='option4' class='election text-center'></div>
+              <div id='option5' class='election text-center'></div>
+              <div id='option6' class='election text-center'></div>
+              <div id='option7' class='election text-center'></div>
+              <div id='option8' class='election text-center'></div>
+              <div id='option9' class='election text-center'></div>
+              <div id='results' class='election text-center'></div>
+            </div>
+          </div>
+          <input id='delete' class='button' type='button' value='Delete election'>
+        </div>
       </div>
 
-      <form id='sign-in' class='border text-center'>
-        <fieldset>
-          <legend class='text-center'>Sign in!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email"><br>
-          <input type="password" name="credentials[password]" placeholder="Password"><br>
-          <input type="submit" value="Sign in!">
-        </fieldset>
-      </form>
-
-      <form id='index' class='border text-center'>
-        <fieldset>
-          <legend class='text-center'>Index</legend>
-          <input type='button' value='Index'>
-        </fieldset>
-      </form>
-
-      <form id='election-input' class='border text-center'>
-        <fieldset>
-          <legend class='text-center'>Election name</legend>
-          <input type="text" name="name" placeholder="Election"><br>
-          <legend class='text-center'>Voting method</legend>
-          <input type="text" name="voting_method" placeholder="Voting method"><br>
-          <legend class='text-center'>Options to choose from</legend>
-          <input type="text" name="option1" placeholder="Option1"><br>
-          <input type="text" name="option2" placeholder="Option2"><br>
-          <input type="text" name="option3" placeholder="Option3"><br>
-          <input type="text" name="option4" placeholder="Option4"><br>
-          <input type="text" name="option5" placeholder="Option5"><br>
-          <input type="text" name="option6" placeholder="Option6"><br>
-          <input type="text" name="option7" placeholder="Option7"><br>
-          <input type="text" name="option8" placeholder="Option8"><br>
-          <input type="text" name="option9" placeholder="Option9"><br>
-          <input type="submit" value="Submit">
-        </fieldset>
-      </form>
-
-      <form id='show' class='border text-center'>
-        <fieldset>
-          <legend class='text-center'>Show</legend>
-          <input type="text" name="id" placeholder="##"><br>
-          <input type="submit" value="Submit">
-        </fieldset>
-      </form>
-
-
-        <form id="sign-up" class="border text-center">
-          <fieldset>
-            <legend>Not a member? Sign up!</legend>
-            <input type="text" name="credentials[email]" placeholder="Email"><br>
-            <input type="password" name="credentials[password]" placeholder="Password"><br>
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
-            <input type="submit" value="Sign up new user">
-          </fieldset>
-        </form>
-
-        <form id="change-password" class="text-center border">
-          <fieldset>
-            <legend>Change Password</legend>
-            <input type="password" name="passwords[old]" placeholder="Old Password"><br>
-            <input type="password" name="passwords[new]" placeholder="New Password"><br>
-            <input type="submit" value="Change Password!">
-          </fieldset>
-        </form>
-
-        <form id="sign-out" class="border text-center sign-out">
-          <fieldset>
-            <input type="submit" value="Sign out">
-          </fieldset>
-        </form>
     </body>
 </html>

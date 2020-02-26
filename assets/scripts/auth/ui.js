@@ -18,9 +18,9 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#auth-notice').text('Signed in successfully')
   $('form').trigger('reset')
-  // $('.phase1').hide()
-  // $('.phase2').show()
   store.user = data.user
+  $('.signed-in').show()
+  $('.signed-out').hide()
 }
 
 const signInFailure = function (error) {
@@ -37,9 +37,8 @@ const signOutSuccess = function () {
   $('form').trigger('reset')
   $('#sign-in').show()
   $('#sign-up').show()
-  // $('.phase2').hide()
-  // $('.phase3').hide()
-  // $('.phase1').show()
+  store. election = null
+  store.elections = null
   store.user = null
 }
 
