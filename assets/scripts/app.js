@@ -21,5 +21,7 @@ $(() => {
 
   $('#getElectionsButton').on('click', electionEvents.onIndexElections)
   $('#clearElectionsButton').on('click', electionEvents.onClearElections)
+  $('.content').on('click', '.delete-election', electionEvents.onDeleteElection)
+  $('.content').on('click', '.show-election', electionEvents.onShowElection)
 
 })

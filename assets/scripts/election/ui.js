@@ -1,7 +1,8 @@
 'use strict'
 
 const store = require('./../store.js')
-const showElectionsTemplate = require('../templates/ballots.handlebars')
+const indexElectionsTemplate = require('../templates/index.handlebars')
+const showElectionTemplate = require('../templates/show.handlebars')
 
 const displayElection = function (data) {
   console.log('running displayElection')
@@ -45,10 +46,16 @@ const onShowSuccess = function (responseData) {
   $('form').trigger('reset')
 }
 
+// const onShowSuccess = (responseData) => {
+//   console.log(responseData)
+//   const showElectionHtml = showElectionTemplate({ election: responseData.election })
+//   $('.content').html(showElectionHtml)
+// }
+
 const onIndexSuccess = (responseData) => {
   console.log(responseData)
-  const showElectionsHtml = showElectionsTemplate({ elections: responseData.elections })
-  $('.content').html(showElectionsHtml)
+  const indexElectionsHtml = indexElectionsTemplate({ elections: responseData.elections })
+  $('.content').html(indexElectionsHtml)
 }
 
 const clearElections = () => {

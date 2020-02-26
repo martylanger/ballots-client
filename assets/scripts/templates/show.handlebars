@@ -1,0 +1,22 @@
+
+{{#each elections as |election|}}
+  {{log election}}
+  <section data-id="{{election.id}}">
+    <h6>Name:</h6>
+    <h3>
+      {{limit election.name 15}}
+    </h2>
+    <!-- <h6>Voting method:</h6>
+    <p>
+      {{#if election.voting_method}}
+        {{election.voting_method}}
+      {{else}}
+        No voting method provided.
+      {{/if}}
+    </p> -->
+    <button type="submit" class="btn btn-danger delete-election">Delete</button>
+    <button type="submit" class="btn show-election">Show</button>
+    <!-- {{> partial}} -->
+  </section>
+
+{{/each}}

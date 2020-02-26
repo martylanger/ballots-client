@@ -13,16 +13,6 @@
     </head>
     <body>
 
-      <nav>
-        <div class="app-name">Vote Better</div>
-        <div class="nav-buttons">
-          <button id="getElectionsButton" class="btn btn-info mr-2">My elections</button>
-          <button id="clearElectionsButton" class="btn btn-outline-info">Clear elections</button>
-        </div>
-      </nav>
-      <main>
-        <div id="content" class="content"></div>
-      </main>
 
       <h1>Vote Better</h1>
       <div id='auth-notice' class='notices text-center'></div>
@@ -66,6 +56,13 @@
           </div>
 
           <div class='col-4 border third'>
+            <div>
+              <div class="app-name">Vote Better</div>
+              <div class="nav-buttons">
+                <button id="getElectionsButton" class="btn btn-info mr-2">My elections</button>
+                <button id="clearElectionsButton" class="btn btn-outline-info">Clear elections</button>
+              </div>
+            </div>
             <form id='index-button' class='signed-in text-center'>
               <fieldset>
                 <input type='button' class='button' value='My Elections'>
@@ -105,6 +102,9 @@
           </div>
 
           <div class='col-4 border third'>
+            <div>
+              <div id="content" class="content"></div>
+            </div>
             <div id='index'>
             </div>
             <div id='expansion'>

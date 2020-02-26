@@ -31,12 +31,12 @@ const onShowElection = function (event) {
     id = event.target.id
     store.showIndex = false
   }
-  if (id) {
+  // if (id) {
     store.id = id
     api.show(id)
       .then(ui.onShowSuccess)
       .catch(ui.onShowFailure)
-  }
+  // }
 }
 
 // const electionJSON = function (event) {
@@ -109,7 +109,8 @@ const onCreateElection = function (event) {
 
 const onDeleteElection = function (event) {
   event.preventDefault()
-  const id = store.id
+  const id = $(event.target).closest('section').data('id')
+  // const id = store.id
   api.destroy(id)
     .then(ui.onDeleteSuccess)
     .catch(ui.onDeleteFailure)
