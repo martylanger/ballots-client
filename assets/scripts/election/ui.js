@@ -120,6 +120,10 @@ const onCreateFailure = function (responseData) {
 
 const onDeleteSuccess = function () {
   console.log('running onDeleteSuccess')
+  store.indexed = false
+  store.expanded = false
+  store.showIndex = false
+  $('#index').text()
   $('#notice').text('You deleted an election!')
 }
 
