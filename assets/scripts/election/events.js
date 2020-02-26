@@ -2,15 +2,16 @@
 
 const api = require('./api.js')
 const ui = require('./ui.js')
-// const authApi = require('./../auth/api.js')
 const store = require('./../store')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 require('./../app.js')
 
 const onIndexElections = function (event) {
-  event.preventDefault()
-  store.showIndex = true
+  if (event) {
+    event.preventDefault()
+    console.log('running onIndexElections')
+  }
   api.index()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
@@ -25,19 +26,9 @@ const onShowElection = function (event) {
   event.preventDefault()
   console.log('running onShowElection')
   const id = $(event.target).closest('section').data('id')
-  // let id = null
-  // if (getFormFields(this).id) {
-  //   id = getFormFields(this).id
-  // } else if (store.showIndex) {
-  //   id = event.target.id
-  //   store.showIndex = false
-  // }
-  // if (id) {
-    // store.id = id
-    api.show(id)
-      .then(ui.onShowSuccess)
-      .catch(ui.onShowFailure)
-  // }
+  api.show(id)
+    .then(ui.onShowSuccess)
+    .catch(ui.onShowFailure)
 }
 
 // const electionJSON = function (event) {
@@ -62,6 +53,7 @@ const onShowElection = function (event) {
 
 const onUpdateElection = function (event) {
   event.preventDefault()
+  const id = store.updateId
   const data =
   {
     'election': {
@@ -79,7 +71,7 @@ const onUpdateElection = function (event) {
     }
   }
 
-  api.update(data)
+  api.update(id, data)
     .then(ui.onUpdateSuccess)
     .catch(ui.onError)
 }
@@ -111,10 +103,9 @@ const onCreateElection = function (event) {
 const onDeleteElection = function (event) {
   event.preventDefault()
   const id = $(event.target).closest('section').data('id')
-  // const id = store.id
   api.destroy(id)
-    .then(ui.clearElections)
-    .then(ui.onIndexElections)
+    .then(ui.onDeleteSuccess)
+    .then(onIndexElections)
     .catch(ui.onDeleteFailure)
 }
 

@@ -3,9 +3,11 @@
 const config = require('./../config')
 const store = require('./../store')
 
-const update = function (election) {
+const update = function (id, election) {
+  console.log(id)
+  console.log(election)
   return $.ajax({
-    url: config.apiUrl + '/elections/' + store.election.id,
+    url: config.apiUrl + '/elections/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

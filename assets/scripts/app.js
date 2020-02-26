@@ -6,22 +6,21 @@ const authEvents = require('./auth/events')
 const electionUi = require('./election/ui')
 
 $(() => {
-  $('#show').on('submit', electionEvents.onShowElection)
-  $('#index-button').on('click', electionEvents.onIndexElections)
-  $('#index').on('click', electionEvents.onShowElection)
-  $('#expansion').on('click', electionEvents.onShowElection)
-  $('#election-input').on('submit', electionEvents.onCreateElection)
-  $('#create-click').on('click', electionUi.onCreateClick)
-  $('#expand-index').on('click', electionUi.onIndexExpand)
-  $('#delete').on('click', electionEvents.onDeleteElection)
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
 
-  $('.getElectionsButton').on('click', electionEvents.onIndexElections)
+  $('.indexButton').on('click', electionEvents.onIndexElections)
   $('.clearElectionsButton').on('click', electionEvents.onClearElections)
-  $('.content').on('click', '.delete-election', electionEvents.onDeleteElection)
+
+  $('.createElectionButton').on('click', electionUi.onCreateClick)
+  $('#create-form').on('submit', electionEvents.onCreateElection)
+
+  $('.content').on('click', '.updateElectionButton', electionUi.onUpdateClick)
+  $('#update-form').on('submit', electionEvents.onUpdateElection)
+
   $('.content').on('click', '.show-election', electionEvents.onShowElection)
-  $('.content').on('click', '.getElectionsButton', electionEvents.onIndexElections)
+  $('.content').on('click', '.delete-election', electionEvents.onDeleteElection)
+  $('.content').on('click', '.index-elections', electionEvents.onIndexElections)
 })

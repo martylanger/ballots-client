@@ -5,18 +5,18 @@ const store = require('./../store')
 // const events = require('./../events')
 
 const signUpSuccess = function (data) {
-  $('#auth-notice').text('Signed up successfully')
+  $('#notice').text('Signed up successfully')
   $('form').trigger('reset')
 }
 
 const signUpFailure = function (error) {
-  $('#auth-notice').text('Error on sign up: ' + error)
-  $('#auth-notice').show()
+  $('#notice').text('Error on sign up: ' + error)
+  $('#notice').show()
   $('form').trigger('reset')
 }
 
 const signInSuccess = function (data) {
-  $('#auth-notice').text('Signed in successfully')
+  $('#notice').text('Signed in successfully')
   $('form').trigger('reset')
   store.user = data.user
   $('.signed-in').show()
@@ -24,36 +24,36 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#auth-notice').text('Error on sign in: ', error)
-  $('#auth-notice').show()
+  $('#notice').text('Error on sign in: ', error)
+  $('#notice').show()
   $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
   $('.notices').hide()
   $('#index').hide()
-  $('#auth-notice').show()
-  $('#auth-notice').text('Signed out successfully')
+  $('#notice').show()
+  $('#notice').text('Signed out successfully')
   $('form').trigger('reset')
   $('#sign-in').show()
   $('#sign-up').show()
-  store. election = null
+  store.election = null
   store.elections = null
   store.user = null
 }
 
 const signOutFailure = function () {
-  $('#auth-notice').text('Error on sign out')
+  $('#notice').text('Error on sign out')
   $('form').trigger('reset')
 }
 
 const changePasswordSuccess = function () {
-  $('#auth-notice').text('Changed password successfully')
+  $('#notice').text('Changed password successfully')
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = function () {
-  $('#auth-notice').text('Error on change password')
+  $('#notice').text('Error on change password')
   $('form').trigger('reset')
 }
 

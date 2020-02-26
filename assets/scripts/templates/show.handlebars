@@ -21,57 +21,58 @@
         No options provided.
       {{/if}}
     </p>
+    {{#if election.option2}}
     <h6>Option 2:</h6>
     <p>
-      {{#if election.option2}}
         {{election.option2}}
+      </p>
       {{/if}}
-    </p>
+    {{#if election.option3}}
     <h6>Option 3:</h6>
     <p>
-      {{#if election.option3}}
         {{election.option3}}
+      </p>
       {{/if}}
-    </p>
+    {{#if election.option4}}
     <h6>Option 4:</h6>
     <p>
-      {{#if election.option4}}
         {{election.option4}}
+      </p>
       {{/if}}
-    </p>
+    {{#if election.option5}}
     <h6>Option 5:</h6>
     <p>
-      {{#if election.option5}}
         {{election.option5}}
+      </p>
       {{/if}}
-    </p>
+    {{#if election.option6}}
     <h6>Option 6:</h6>
     <p>
-      {{#if election.option6}}
         {{election.option6}}
+      </p>
       {{/if}}
-    </p>
+    {{#if election.option7}}
     <h6>Option 7:</h6>
     <p>
-      {{#if election.option7}}
         {{election.option7}}
-      {{/if}}
     </p>
+    {{/if}}
+    {{#if election.option8}}
     <h6>Option 8:</h6>
     <p>
-      {{#if election.option8}}
         {{election.option8}}
-      {{/if}}
     </p>
+    {{/if}}
+    {{#if election.option9}}
     <h6>Option 9:</h6>
     <p>
-      {{#if election.option9}}
         {{election.option9}}
-      {{/if}}
     </p>
+    {{/if}}
     <div class='buttons'>
+      <button type="submit" class="btn updateElectionButton">Edit</button>
       <button type="submit" class="btn btn-danger delete-election">Delete</button>
-      <button class="getElectionsButton btn btn-info mr-2">Back</button>
+      <button class="index-elections btn btn-info mr-2">Back</button>
     </div>
 
     <!-- {{> partial}} -->
