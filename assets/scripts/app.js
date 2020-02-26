@@ -19,9 +19,9 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
 
-  $('#getElectionsButton').on('click', electionEvents.onIndexElections)
-  $('#clearElectionsButton').on('click', electionEvents.onClearElections)
+  $('.getElectionsButton').on('click', electionEvents.onIndexElections)
+  $('.clearElectionsButton').on('click', electionEvents.onClearElections)
   $('.content').on('click', '.delete-election', electionEvents.onDeleteElection)
   $('.content').on('click', '.show-election', electionEvents.onShowElection)
-
+  $('.content').on('click', '.getElectionsButton', electionEvents.onIndexElections)
 })

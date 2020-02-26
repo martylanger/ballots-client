@@ -1,22 +1,78 @@
 
-{{#each elections as |election|}}
-  {{log election}}
   <section data-id="{{election.id}}">
+    {{log election}}
     <h6>Name:</h6>
     <h3>
       {{limit election.name 15}}
-    </h2>
-    <!-- <h6>Voting method:</h6>
+    </h3>
+    <h6>Voting method:</h6>
     <p>
       {{#if election.voting_method}}
         {{election.voting_method}}
       {{else}}
         No voting method provided.
       {{/if}}
-    </p> -->
-    <button type="submit" class="btn btn-danger delete-election">Delete</button>
-    <button type="submit" class="btn show-election">Show</button>
+    </p>
+    <h6>Option 1:</h6>
+    <p>
+      {{#if election.option1}}
+        {{election.option1}}
+      {{else}}
+        No options provided.
+      {{/if}}
+    </p>
+    <h6>Option 2:</h6>
+    <p>
+      {{#if election.option2}}
+        {{election.option2}}
+      {{/if}}
+    </p>
+    <h6>Option 3:</h6>
+    <p>
+      {{#if election.option3}}
+        {{election.option3}}
+      {{/if}}
+    </p>
+    <h6>Option 4:</h6>
+    <p>
+      {{#if election.option4}}
+        {{election.option4}}
+      {{/if}}
+    </p>
+    <h6>Option 5:</h6>
+    <p>
+      {{#if election.option5}}
+        {{election.option5}}
+      {{/if}}
+    </p>
+    <h6>Option 6:</h6>
+    <p>
+      {{#if election.option6}}
+        {{election.option6}}
+      {{/if}}
+    </p>
+    <h6>Option 7:</h6>
+    <p>
+      {{#if election.option7}}
+        {{election.option7}}
+      {{/if}}
+    </p>
+    <h6>Option 8:</h6>
+    <p>
+      {{#if election.option8}}
+        {{election.option8}}
+      {{/if}}
+    </p>
+    <h6>Option 9:</h6>
+    <p>
+      {{#if election.option9}}
+        {{election.option9}}
+      {{/if}}
+    </p>
+    <div class='buttons'>
+      <button type="submit" class="btn btn-danger delete-election">Delete</button>
+      <button class="getElectionsButton btn btn-info mr-2">Back</button>
+    </div>
+
     <!-- {{> partial}} -->
   </section>
-
-{{/each}}

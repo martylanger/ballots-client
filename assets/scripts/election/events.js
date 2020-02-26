@@ -24,15 +24,16 @@ const onClearElections = function (event) {
 const onShowElection = function (event) {
   event.preventDefault()
   console.log('running onShowElection')
-  let id = null
-  if (getFormFields(this).id) {
-    id = getFormFields(this).id
-  } else if (store.showIndex) {
-    id = event.target.id
-    store.showIndex = false
-  }
+  const id = $(event.target).closest('section').data('id')
+  // let id = null
+  // if (getFormFields(this).id) {
+  //   id = getFormFields(this).id
+  // } else if (store.showIndex) {
+  //   id = event.target.id
+  //   store.showIndex = false
+  // }
   // if (id) {
-    store.id = id
+    // store.id = id
     api.show(id)
       .then(ui.onShowSuccess)
       .catch(ui.onShowFailure)
@@ -112,7 +113,8 @@ const onDeleteElection = function (event) {
   const id = $(event.target).closest('section').data('id')
   // const id = store.id
   api.destroy(id)
-    .then(ui.onDeleteSuccess)
+    .then(ui.clearElections)
+    .then(ui.onIndexElections)
     .catch(ui.onDeleteFailure)
 }
 

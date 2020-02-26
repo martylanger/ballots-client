@@ -39,12 +39,12 @@ const displayElection = function (data) {
   if (data.election.results) { $('#results').text('Results: ' + data.election.results) }
 }
 
-const onShowSuccess = function (responseData) {
-  console.log('running onShowSuccess')
-  $('#notice').text("Here's your election!")
-  displayElection(responseData)
-  $('form').trigger('reset')
-}
+// const onShowSuccess = function (responseData) {
+//   console.log('running onShowSuccess')
+//   $('#notice').text("Here's your election!")
+//   displayElection(responseData)
+//   $('form').trigger('reset')
+// }
 
 // const onShowSuccess = (responseData) => {
 //   console.log(responseData)
@@ -52,8 +52,15 @@ const onShowSuccess = function (responseData) {
 //   $('.content').html(showElectionHtml)
 // }
 
+const onShowSuccess = (data) => {
+  console.log(data)
+  const showElectionHtml = showElectionTemplate({ election: data.election })
+  $('.content').html(showElectionHtml)
+}
+
 const onIndexSuccess = (responseData) => {
   console.log(responseData)
+  store.elections = responseData.elections
   const indexElectionsHtml = indexElectionsTemplate({ elections: responseData.elections })
   $('.content').html(indexElectionsHtml)
 }
@@ -88,19 +95,19 @@ const clearElections = () => {
 //   }
 // }
 
-const onIndexExpand = function () {
-  console.log('running onIndexExpand')
-  $('.expand').hide()
-  $('#expansion').show()
-  if (!store.expanded) {
-    for (let i = store.elections.length - 11; i >= 0; i--) {
-      $('#expansion').append(
-        "<div id='" + store.elections[i].id + "' class='shower'>" + store.elections[i].name + " (id: " + store.elections[i].id + ")</div>"
-      )
-    }
-  }
-  store.expanded = true
-}
+// const onIndexExpand = function () {
+//   console.log('running onIndexExpand')
+//   $('.expand').hide()
+//   $('#expansion').show()
+//   if (!store.expanded) {
+//     for (let i = store.elections.length - 11; i >= 0; i--) {
+//       $('#expansion').append(
+//         "<div id='" + store.elections[i].id + "' class='shower'>" + store.elections[i].name + " (id: " + store.elections[i].id + ")</div>"
+//       )
+//     }
+//   }
+//   store.expanded = true
+// }
 
 const onUpdateSuccess = function (responseData) {
   console.log('running onUpdateSuccess')
@@ -144,7 +151,7 @@ const onDeleteSuccess = function () {
 module.exports = {
   onShowSuccess,
   onIndexSuccess,
-  onIndexExpand,
+  // onIndexExpand,
   onUpdateSuccess,
   onUpdateFailure,
   onCreateClick,
