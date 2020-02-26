@@ -8,12 +8,17 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 require('./../app.js')
 
-const onIndexElections = function () {
+const onIndexElections = function (event) {
   event.preventDefault()
   store.showIndex = true
   api.index()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
+}
+
+const onClearElections = function (event) {
+  event.preventDefault()
+  ui.clearElections()
 }
 
 const onShowElection = function (event) {
@@ -113,6 +118,7 @@ const onDeleteElection = function (event) {
 module.exports = {
   onShowElection,
   onIndexElections,
+  onClearElections,
   onUpdateElection,
   onCreateElection,
   onDeleteElection

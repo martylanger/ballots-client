@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store.js')
+const showElectionsTemplate = require('../templates/ballots.handlebars')
 
 const displayElection = function (data) {
   console.log('running displayElection')
@@ -44,42 +45,48 @@ const onShowSuccess = function (responseData) {
   $('form').trigger('reset')
 }
 
-const onIndexSuccess = function (responseData) {
-  console.log('running onIndexSuccess')
-  store.elections = responseData.elections
-  $('#auth-notice').hide()
-  $('#notice2').hide()
-  $('#election-display').hide()
-  $('#notice').html('Here are your elections!')
-  $('#index').show()
-  // If the index is expandable, show the expand button
-  if (!store.notALot) {
-    $('.expand').show()
-  }
-  // If the index hasn't been populated yet
-  if (!store.indexed) {
-    store.indexed = true
-    // Display 10 newest elections
-    for (let i = 0; i < 10; i++) {
-      if (responseData.elections[i]) {
-        $('#index').append(
-          "<div id='" + responseData.elections[i].id + "' class='shower'>" + responseData.elections[i].name + " (id: " + responseData.elections[i].id + ")</div>"
-        )
-        $('.expand').show()
-      } else {
-        $('.expand').hide()
-        store.notALot = true
-      }
-    }
-  }
+const onIndexSuccess = (responseData) => {
+  console.log(responseData)
+  const showElectionsHtml = showElectionsTemplate({ elections: responseData.elections })
+  $('.content').html(showElectionsHtml)
 }
+
+const clearElections = () => {
+  $('.content').empty()
+}
+
+// const onIndexSuccess = function (responseData) {
+//   console.log('running onIndexSuccess')
+//   store.elections = responseData.elections
+//   $('#auth-notice').hide()
+//   $('#notice2').hide()
+//   $('#election-display').hide()
+//   $('#notice').html('Here are your elections!')
+//   $('#index').show()
+//   // If the index is expandable, show the expand button
+//   if (!store.notALot) {
+//     $('.expand').show()
+//   }
+//   // Display 10 newest elections
+//   for (let i = responseData.elections.length - 1; i > responseData.elections.length - 11; i--) {
+//     if (responseData.elections[i]) {
+//       $('#index').append(
+//         "<div id='" + responseData.elections[i].id + "' class='shower'>" + responseData.elections[i].name + " (id: " + responseData.elections[i].id + ")</div>"
+//       )
+//       $('.expand').show()
+//     } else {
+//       $('.expand').hide()
+//       store.notALot = true
+//     }
+//   }
+// }
 
 const onIndexExpand = function () {
   console.log('running onIndexExpand')
   $('.expand').hide()
   $('#expansion').show()
   if (!store.expanded) {
-    for (let i = 10; i < store.elections.length; i++) {
+    for (let i = store.elections.length - 11; i >= 0; i--) {
       $('#expansion').append(
         "<div id='" + store.elections[i].id + "' class='shower'>" + store.elections[i].name + " (id: " + store.elections[i].id + ")</div>"
       )
@@ -136,5 +143,6 @@ module.exports = {
   onCreateClick,
   onCreateSuccess,
   onCreateFailure,
-  onDeleteSuccess
+  onDeleteSuccess,
+  clearElections
 }

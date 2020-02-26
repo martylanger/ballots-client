@@ -18,4 +18,8 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
+
+  $('#getElectionsButton').on('click', electionEvents.onIndexElections)
+  $('#clearElectionsButton').on('click', electionEvents.onClearElections)
+
 })
