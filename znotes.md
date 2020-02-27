@@ -15,7 +15,7 @@
   //     "results":,
   //     "user":{"id":1,"email":"james@polk"}
   //   }
-  // }  console.log(election)
+  // }  // console.log(election)
 }
 
 ### Scripts

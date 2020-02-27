@@ -4,8 +4,8 @@ const config = require('./../config')
 const store = require('./../store')
 
 const update = function (id, election) {
-  console.log(id)
-  console.log(election)
+  // console.log(id)
+  // console.log(election)
   return $.ajax({
     url: config.apiUrl + '/elections/' + id,
     method: 'PATCH',
