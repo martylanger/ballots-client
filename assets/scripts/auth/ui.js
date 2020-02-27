@@ -1,8 +1,6 @@
 'use strict'
 
 const store = require('./../store')
-// const api = require('./api')
-// const events = require('./../events')
 
 const signUpSuccess = function (data) {
   $('#notice').text('Signed up successfully')
@@ -10,8 +8,7 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (error) {
-  $('#notice').text('Error on sign up: ' + error)
-  $('#notice').show()
+  $('#notice').text('Error on sign up: ' + error.statusText)
   $('form').trigger('reset')
 }
 
@@ -24,28 +21,19 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (error) {
-  $('#notice').text('Error on sign in: ', error)
-  $('#notice').show()
+  $('#notice').text('Error on sign in: ' + error.statusText)
   $('form').trigger('reset')
 }
 
 const signOutSuccess = function () {
-  $('.notices').hide()
-  $('.content').hide()
   $('.signed-in').hide()
-  $('#change-password').hide()
-  $('#sign-out').hide()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#notice').show()
+  $('.signed-out').show()
   $('#notice').text('Signed out successfully')
-  $('form').trigger('reset')
   store.user = null
 }
 
-const signOutFailure = function () {
-  $('#notice').text('Error on sign out')
-  $('form').trigger('reset')
+const signOutFailure = function (error) {
+  $('#notice').text('Error on sign out: ' + error.statusText)
 }
 
 const changePasswordSuccess = function () {
@@ -53,8 +41,8 @@ const changePasswordSuccess = function () {
   $('form').trigger('reset')
 }
 
-const changePasswordFailure = function () {
-  $('#notice').text('Error on change password')
+const changePasswordFailure = function (error) {
+  $('#notice').text('Error on change password: ' + error.statusText)
   $('form').trigger('reset')
 }
 

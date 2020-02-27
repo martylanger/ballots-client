@@ -6,7 +6,7 @@ const showElectionTemplate = require('../templates/show.handlebars')
 
 const clearElections = function () {
   console.log('running clearElections')
-  $('#notice').text('')
+  $('#notice').empty()
   $('.content').empty()
 }
 
@@ -16,24 +16,30 @@ const onIndexSuccess = function (responseData) {
   $('.content').html(indexElectionsHtml)
 }
 
-const onIndexFailure = function () {
+const onIndexFailure = function (error) {
   console.log('running onIndexFailure')
-  $('#notice').text('You failed to index the elections.')
+  $('#notice').text('You failed to display your elections: ' + error.statusText)
 }
 
 const onShowSuccess = function (data) {
   console.log('running onShowSuccess')
-  $('#notice').text('')
+  $('#notice').empty()
   store.updateId = data.election.id
   const showElectionHtml = showElectionTemplate({ election: data.election })
   $('.content').html(showElectionHtml)
 }
 
+const onShowFailure = function (error) {
+  console.log('running onShowFailure')
+  $('#notice').text('You failed to display your election: ' + error.statusText)
+}
+
 const onUpdateClick = function (event) {
   event.preventDefault()
   console.log('running onUpdateClick')
-  $('#notice').text('')
+  $('#notice').empty()
   $('#update-form').show()
+  $('#create-form').hide()
 }
 
 const onUpdateSuccess = function (responseData) {
@@ -43,17 +49,17 @@ const onUpdateSuccess = function (responseData) {
   $('#update-form').hide()
 }
 
-const onUpdateFailure = function (responseData) {
+const onUpdateFailure = function (error) {
   console.log('running onUpdateFailure')
-  $('#notice').text("Your update didn't work.")
+  $('#notice').text("Your update didn't work: " + error.statusText)
 }
 
 const onCreateClick = function (event) {
   event.preventDefault()
   console.log('running onCreateClick')
-  $('#notice').text('')
+  $('#notice').empty()
   $('#create-form').show()
-  $('.submit-create').show()
+  $('#update-form').hide()
 }
 
 const onCreateSuccess = function (responseData) {
@@ -64,9 +70,9 @@ const onCreateSuccess = function (responseData) {
   $('#create-form').hide()
 }
 
-const onCreateFailure = function (responseData) {
+const onCreateFailure = function (error) {
   console.log('running onCreateFailure')
-  $('#notice').html('You failed to create an election.')
+  $('#notice').text('You failed to create an election: ' + error.statusText)
 }
 
 const onDeleteSuccess = function () {
@@ -74,9 +80,9 @@ const onDeleteSuccess = function () {
   $('#notice').text('You deleted an election!')
 }
 
-const onDeleteFailure = function () {
+const onDeleteFailure = function (error) {
   console.log('running onDeleteFailure')
-  $('#notice').html('You failed to delete an election.')
+  $('#notice').text('You failed to delete an election: ' + error.statusText)
 }
 
 module.exports = {
@@ -84,6 +90,7 @@ module.exports = {
   onIndexSuccess,
   onIndexFailure,
   onShowSuccess,
+  onShowFailure,
   onUpdateClick,
   onUpdateSuccess,
   onUpdateFailure,
