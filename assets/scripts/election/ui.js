@@ -5,8 +5,9 @@ const indexElectionsTemplate = require('../templates/index.handlebars')
 const showElectionTemplate = require('../templates/show.handlebars')
 
 const isClearable = function () {
-  $('.content').text() ? $('.clearElectionsButton').show() : $('.clearElectionsButton').hide()
-  return $('.content').text()
+  $('.content').text().length > 1 ? $('.clearElectionsButton').show() : $('.clearElectionsButton').hide()
+  console.log($('.content').text().length)
+  return $('.content').text().length > 1
 }
 
 const hideUpdateForm = function () {
