@@ -27,6 +27,7 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function () {
   $('.signed-in').hide()
+  $('.input-form').hide()
   $('.signed-out').show()
   $('#notice').text('Signed out successfully')
   store.user = null
