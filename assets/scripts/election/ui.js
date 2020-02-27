@@ -31,6 +31,7 @@ const clearElections = function () {
 
 const onIndexSuccess = function (responseData) {
   console.log('running onIndexSuccess')
+  hideUpdateForm()
   const indexElectionsHtml = indexElectionsTemplate({ elections: responseData.elections })
   $('.content').html(indexElectionsHtml)
   if (!isClearable()) {
