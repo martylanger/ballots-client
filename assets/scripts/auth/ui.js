@@ -37,8 +37,6 @@ const signOutSuccess = function () {
   $('form').trigger('reset')
   $('#sign-in').show()
   $('#sign-up').show()
-  store.election = null
-  store.elections = null
   store.user = null
 }
 

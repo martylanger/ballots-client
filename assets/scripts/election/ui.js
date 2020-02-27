@@ -12,7 +12,6 @@ const clearElections = function () {
 
 const onIndexSuccess = function (responseData) {
   console.log('running onIndexSuccess')
-  store.elections = responseData.elections
   const indexElectionsHtml = indexElectionsTemplate({ elections: responseData.elections })
   $('.content').html(indexElectionsHtml)
 }
