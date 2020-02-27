@@ -39,6 +39,8 @@ tofu.
   - In particular, I'd like to have the current field values appear as place-holders.
 - I'd like to restyle the app.
 - I'd like to make the app mobile-friendly.
+- I intend to restrict voting method options to particular methods.
+  - The execution of which methods I intend to write into my program to produce results! 
 - Eventually, I'd like to create the whole VB app!
 
 #### Wireframe

@@ -19,7 +19,6 @@ $(() => {
 
   $('.content').on('click', '.updateElectionButton', electionUi.onUpdateClick)
   $('#update-form').on('submit', electionEvents.onUpdateElection)
-  $('.xOption').on('click', '')
 
   $('.content').on('click', '.show-election', electionEvents.onShowElection)
   $('.content').on('click', '.delete-election', electionEvents.onDeleteElection)
