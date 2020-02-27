@@ -43,7 +43,8 @@ tofu.
 
 #### Wireframe
 
-![Wireframe](https://imgur.com/a/mhsf8hv)
+![Wireframe](https://i.imgur.com/ouxyWfd.jpg)
+[Wireframe](https://i.imgur.com/ouxyWfd.jpg)
 
 ### User Stories
 

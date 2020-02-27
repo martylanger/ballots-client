@@ -122,6 +122,11 @@ const onDeleteElection = function (event) {
     .catch(ui.onDeleteFailure)
 }
 
+const onXOption = function (event) {
+  event.preventDefault()
+  const
+}
+
 module.exports = {
   onShowElection,
   onIndexElections,
