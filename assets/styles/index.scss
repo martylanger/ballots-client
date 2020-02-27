@@ -1,14 +1,7 @@
 
 @import '~bootstrap/scss/bootstrap';
 
-.expand {
-  display: none;
-}
-
-.signed-in {
-  display: none;
-}
-
+.signed-in,
 .input-form {
   display: none;
 }
@@ -23,9 +16,30 @@
 }
 
 .nav-buttons {
-  align-self: center;
-  display: flex;
+  display: inline-flex;
   margin: auto;
+}
+
+.q {
+  font-size: 20px;
+}
+
+.form-name {
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.input-field {
+  margin: 4px;
+}
+
+.btn-green {
+  background-color: green;
+
+  &:hover,
+  &:focus {
+    background-color: darkGreen;
+  }
 }
 
 .detail {

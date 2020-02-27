@@ -4,17 +4,38 @@ const store = require('./../store.js')
 const indexElectionsTemplate = require('../templates/index.handlebars')
 const showElectionTemplate = require('../templates/show.handlebars')
 
+const isClearable = function () {
+  $('.content').text() ? $('.clearElectionsButton').show() : $('.clearElectionsButton').hide()
+  return $('.content').text()
+}
+
+const hideUpdateForm = function () {
+  $('#update-form').hide()
+  store.updateForm = false
+  $('.updateElectionButton').text('Edit')
+}
+
+const hideCreateForm = function () {
+  $('#create-form').hide()
+  store.createForm = false
+  $('.createElectionButton').text('New election')
+}
+
 const clearElections = function () {
   console.log('running clearElections')
   $('#notice').empty()
   $('.content').empty()
+  hideUpdateForm()
+  isClearable()
 }
 
 const onIndexSuccess = function (responseData) {
   console.log('running onIndexSuccess')
-  store.elections = responseData
   const indexElectionsHtml = indexElectionsTemplate({ elections: responseData.elections })
   $('.content').html(indexElectionsHtml)
+  if (!isClearable()) {
+    $('#notice').text("You don't have any elections! Try making a new election.")
+  }
 }
 
 const onIndexFailure = function (error) {
@@ -25,10 +46,12 @@ const onIndexFailure = function (error) {
 const onShowSuccess = function (data) {
   console.log('running onShowSuccess')
   $('#notice').empty()
+  // Save election and id to facilitate update and delete
   store.election = data.election
   store.updateId = data.election.id
   const showElectionHtml = showElectionTemplate({ election: data.election })
   $('.content').html(showElectionHtml)
+  isClearable()
 }
 
 const onShowFailure = function (error) {
@@ -39,16 +62,24 @@ const onShowFailure = function (error) {
 const onUpdateClick = function (event) {
   event.preventDefault()
   console.log('running onUpdateClick')
-  $('#notice').empty()
-  $('#update-form').show()
-  $('#create-form').hide()
+  if (!store.updateForm) {
+    hideCreateForm()
+    $('#notice').empty()
+    $('#update-form').show()
+    store.updateForm = true
+    $('.updateElectionButton').text('Cancel')
+  } else {
+    hideUpdateForm()
+  }
 }
 
 const onUpdateSuccess = function (responseData) {
   console.log('running onUpdateSuccess')
   $('#notice').text('You updated your election!')
+  $('form').trigger('reset')
   onShowSuccess(responseData)
-  $('#update-form').hide()
+  hideUpdateForm()
+  isClearable()
 }
 
 const onUpdateFailure = function (error) {
@@ -59,17 +90,24 @@ const onUpdateFailure = function (error) {
 const onCreateClick = function (event) {
   event.preventDefault()
   console.log('running onCreateClick')
-  $('#notice').empty()
-  $('#create-form').show()
-  $('#update-form').hide()
+  if (!store.createForm) {
+    hideUpdateForm()
+    $('#notice').empty()
+    $('#create-form').show()
+    store.createForm = true
+    $('.createElectionButton').text('Cancel')
+  } else {
+    hideCreateForm()
+  }
 }
 
 const onCreateSuccess = function (responseData) {
   console.log('running onCreateSuccess')
   $('#notice').text('You created an election!')
-  onShowSuccess(responseData)
   $('form').trigger('reset')
-  $('#create-form').hide()
+  onShowSuccess(responseData)
+  hideCreateForm()
+  isClearable()
 }
 
 const onCreateFailure = function (error) {
@@ -89,6 +127,7 @@ const onDeleteFailure = function (error) {
 
 module.exports = {
   clearElections,
+  hideUpdateForm,
   onIndexSuccess,
   onIndexFailure,
   onShowSuccess,

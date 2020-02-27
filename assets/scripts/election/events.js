@@ -17,6 +17,14 @@ const onIndexElections = function (event) {
     .catch(ui.onIndexFailure)
 }
 
+const onBack = function (event) {
+  if (event) {
+    event.preventDefault()
+  }
+  ui.hideUpdateForm()
+  onIndexElections(event)
+}
+
 const onClearElections = function (event) {
   event.preventDefault()
   ui.clearElections()
@@ -129,14 +137,15 @@ const onDeleteElection = function (event) {
   event.preventDefault()
   const id = $(event.target).closest('section').data('id')
   api.destroy(id)
+    .then(onBack)
     .then(ui.onDeleteSuccess)
-    .then(onIndexElections)
     .catch(ui.onDeleteFailure)
 }
 
 module.exports = {
   onShowElection,
   onIndexElections,
+  onBack,
   onClearElections,
   onUpdateElection,
   onCreateElection,

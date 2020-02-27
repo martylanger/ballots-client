@@ -22,5 +22,5 @@ $(() => {
 
   $('.content').on('click', '.show-election', electionEvents.onShowElection)
   $('.content').on('click', '.delete-election', electionEvents.onDeleteElection)
-  $('.content').on('click', '.index-elections', electionEvents.onIndexElections)
+  $('.content').on('click', '.index-elections', electionEvents.onBack)
 })

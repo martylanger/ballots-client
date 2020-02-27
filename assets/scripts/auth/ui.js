@@ -18,6 +18,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('.signed-in').show()
   $('.signed-out').hide()
+  $('.clearElectionsButton').hide()
 }
 
 const signInFailure = function (error) {
@@ -29,6 +30,7 @@ const signOutSuccess = function () {
   $('.signed-in').hide()
   $('.input-form').hide()
   $('.signed-out').show()
+  $('.content').empty()
   $('#notice').text('Signed out successfully')
   store.user = null
 }

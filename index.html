@@ -26,7 +26,7 @@
                 <legend class='text-center'>Sign in!</legend>
                 <input type="text" name="credentials[email]" placeholder="Email"><br>
                 <input type="password" name="credentials[password]" placeholder="Password"><br>
-                <input type="submit" class="btn btn-info mr-2" value="Sign in!">
+                <input type="submit" class="btn btn-green btn-info mr-2" value="Sign in!">
               </fieldset>
             </form>
             <form id="sign-up" class="signed-out text-center">
@@ -35,7 +35,7 @@
                 <input type="text" name="credentials[email]" placeholder="Email"><br>
                 <input type="password" name="credentials[password]" placeholder="Password"><br>
                 <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
-                <input type="submit" class="btn btn-info mr-2" value="Sign up new user">
+                <input type="submit" class="btn btn-green btn-info mr-2" value="Sign up new user">
               </fieldset>
             </form>
             <form id="change-password" class="signed-in text-center">
@@ -43,7 +43,7 @@
                 <legend>Change password</legend>
                 <input type="password" name="passwords[old]" placeholder="Old Password"><br>
                 <input type="password" name="passwords[new]" placeholder="New Password"><br>
-                <input type="submit" class="btn btn-info mr-2" value="Change Password!">
+                <input type="submit" class="btn btn-green btn-info mr-2" value="Change Password!">
               </fieldset>
             </form>
             <form id="sign-out" class="text-center signed-in sign-out">
@@ -55,47 +55,49 @@
 
           <div class='col-4 border third'>
             <div>
-              <div class="nav-buttons">
-                <button class="indexButton signed-in btn btn-info mr-2">My elections</button>
-                <button class="clearElectionsButton signed-in btn btn-outline-info mr-2">Clear elections</button>
-                <button class="createElectionButton signed-in btn btn-info mr-2">New election</button>
+              <div class="nav-buttons text-center">
+                <button class="indexButton signed-in btn btn-info mr-2 q">My elections</button>
+                <button class="createElectionButton signed-in btn btn-info mr-2 q">New election</button>
+                <button class="clearElectionsButton signed-in btn btn-outline-info mr-2 q">Clear</button>
               </div>
             </div>
             <form id='create-form' class='input-form text-center'>
               <fieldset>
+                <legend class='text-center form-name'>New Election</legend>
                 <legend class='text-center'>Election name</legend>
                 <input type="text" name="name" placeholder="Election"><br>
                 <legend class='text-center'>Voting method</legend>
                 <input type="text" name="voting_method" placeholder="Voting method"><br>
                 <legend class='text-center'>Options to choose from</legend>
-                <input type="text" name="option1" placeholder="Option 1"><br>
-                <input type="text" name="option2" placeholder="Option 2"><br>
-                <input type="text" name="option3" placeholder="Option 3"><br>
-                <input type="text" name="option4" placeholder="Option 4"><br>
-                <input type="text" name="option5" placeholder="Option 5"><br>
-                <input type="text" name="option6" placeholder="Option 6"><br>
-                <input type="text" name="option7" placeholder="Option 7"><br>
-                <input type="text" name="option8" placeholder="Option 8"><br>
-                <input type="text" name="option9" placeholder="Option 9"><br>
+                <input class='input-field' type="text" name="option1" placeholder="Option 1"><br>
+                <input class='input-field' type="text" name="option2" placeholder="Option 2"><br>
+                <input class='input-field' type="text" name="option3" placeholder="Option 3"><br>
+                <input class='input-field' type="text" name="option4" placeholder="Option 4"><br>
+                <input class='input-field' type="text" name="option5" placeholder="Option 5"><br>
+                <input class='input-field' type="text" name="option6" placeholder="Option 6"><br>
+                <input class='input-field' type="text" name="option7" placeholder="Option 7"><br>
+                <input class='input-field' type="text" name="option8" placeholder="Option 8"><br>
+                <input class='input-field' type="text" name="option9" placeholder="Option 9"><br>
                 <input class="submit-create btn btn-info mr-2" name="submit-create" type="submit" value="Submit">
               </fieldset>
             </form>
             <form id='update-form' class='input-form text-center'>
               <fieldset>
+                <legend class='text-center form-name'>Update election</legend>
                 <legend class='text-center'>Election name</legend>
                 <input type="text" name="name" placeholder="Election"><br>
                 <legend class='text-center'>Voting method</legend>
                 <input type="text" name="voting_method" placeholder="Voting method"><br>
                 <legend class='text-center'>Options to choose from</legend>
-                <input type="text" name="option1" placeholder="Option 1"><br>
-                <input type="text" name="option2" placeholder="Option 2"><br>
-                <input type="text" name="option3" placeholder="Option 3"><br>
-                <input type="text" name="option4" placeholder="Option 4"><br>
-                <input type="text" name="option5" placeholder="Option 5"><br>
-                <input type="text" name="option6" placeholder="Option 6"><br>
-                <input type="text" name="option7" placeholder="Option 7"><br>
-                <input type="text" name="option8" placeholder="Option 8"><br>
-                <input type="text" name="option9" placeholder="Option 9"><br>
+                <input class='input-field' type="text" name="option1" placeholder="Option 1"><br>
+                <input class='input-field' type="text" name="option2" placeholder="Option 2"><br>
+                <input class='input-field' type="text" name="option3" placeholder="Option 3"><br>
+                <input class='input-field' type="text" name="option4" placeholder="Option 4"><br>
+                <input class='input-field' type="text" name="option5" placeholder="Option 5"><br>
+                <input class='input-field' type="text" name="option6" placeholder="Option 6"><br>
+                <input class='input-field' type="text" name="option7" placeholder="Option 7"><br>
+                <input class='input-field' type="text" name="option8" placeholder="Option 8"><br>
+                <input class='input-field' type="text" name="option9" placeholder="Option 9"><br>
                 <input class="submit-update btn btn-info mr-2" name="submit-update" type="submit" value="Submit">
               </fieldset>
             </form>

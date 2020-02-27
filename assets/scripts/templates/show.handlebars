@@ -1,23 +1,18 @@
 
   <section class="details" data-id="{{election.id}}">
-    {{log election}}
     <h2>
       {{election.name}}
     </h2>
+    {{#if election.voting_method}}
     <h4>Voting method:
-      {{#if election.voting_method}}
         {{election.voting_method}}
-      {{else}}
-        No voting method provided.
-      {{/if}}
     </h4>
+    {{/if}}
+    {{#if election.option1}}
     <div class="detail">Option 1:
-      {{#if election.option1}}
         {{election.option1}}
-      {{else}}
-        No options provided.
-      {{/if}}
     </div>
+    {{/if}}
     {{#if election.option2}}
       <div class="detail">Option 2:
         {{election.option2}}
