@@ -12,6 +12,7 @@ const clearElections = function () {
 
 const onIndexSuccess = function (responseData) {
   console.log('running onIndexSuccess')
+  store.elections = responseData
   const indexElectionsHtml = indexElectionsTemplate({ elections: responseData.elections })
   $('.content').html(indexElectionsHtml)
 }
@@ -24,6 +25,7 @@ const onIndexFailure = function (error) {
 const onShowSuccess = function (data) {
   console.log('running onShowSuccess')
   $('#notice').empty()
+  store.election = data.election
   store.updateId = data.election.id
   const showElectionHtml = showElectionTemplate({ election: data.election })
   $('.content').html(showElectionHtml)
