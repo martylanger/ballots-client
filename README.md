@@ -23,15 +23,6 @@ farm-to-table. Meh tofu fam, direct trade tattooed stumptown etsy everyday
 carry activated charcoal. Neutra cornhole polaroid literally salvia, listicle
 tofu.
 
-### User Stories
-
-- As a user I want to sign in/up
-- As a user I want to create a new election
-- As a user I want to see all my elections
-- As a user I want to view a single election
-- As a user I want to update an election I own
-- As a user I want to delete an election I own
-
 ### Technologies Used
 
 - Javascript
@@ -50,12 +41,15 @@ tofu.
 - I'd like to make the app mobile-friendly.
 - Eventually, I'd like to create the whole VB app!
 
+#### Wireframe
 
-#### ERD:
-```
- ________	         ___________
-|	       |	      |	          |
-|  User  |-|-----<| Elections |
-|________|	      |___________|
+![Wireframe](https://imgur.com/a/mhsf8hv)
 
-```
+### User Stories
+
+- As a user I want to sign in/up
+- As a user I want to create a new election
+- As a user I want to see all my elections
+- As a user I want to view a single election
+- As a user I want to update an election I own
+- As a user I want to delete an election I own
