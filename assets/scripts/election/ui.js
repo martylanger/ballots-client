@@ -7,6 +7,7 @@ const showElectionTemplate = require('../templates/show.handlebars')
 const isClearable = function () {
   $('.content').text().length > 1 ? $('.clearElectionsButton').show() : $('.clearElectionsButton').hide()
   // console.log($('.content').text().length)
+  console.log($('.content').text().length > 1)
   return $('.content').text().length > 1
 }
 
