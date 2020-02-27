@@ -1,76 +1,65 @@
 
-  <section data-id="{{election.id}}">
+  <section class="details" data-id="{{election.id}}">
     {{log election}}
-    <h6>Name:</h6>
-    <h3>
-      {{limit election.name 15}}
-    </h3>
-    <h6>Voting method:</h6>
-    <p>
+    <h2>
+      {{election.name}}
+    </h2>
+    <h4>Voting method:
       {{#if election.voting_method}}
         {{election.voting_method}}
       {{else}}
         No voting method provided.
       {{/if}}
-    </p>
-    <h6>Option 1:</h6>
-    <p>
+    </h4>
+    <h5>Option 1:
       {{#if election.option1}}
         {{election.option1}}
       {{else}}
         No options provided.
       {{/if}}
-    </p>
+    </h5>
     {{#if election.option2}}
-    <h6>Option 2:</h6>
-    <p>
+    <h5>Option 2:
         {{election.option2}}
-      </p>
+      </h5>
       {{/if}}
     {{#if election.option3}}
-    <h6>Option 3:</h6>
-    <p>
+    <h5>Option 3:
         {{election.option3}}
-      </p>
+      </h5>
       {{/if}}
     {{#if election.option4}}
-    <h6>Option 4:</h6>
-    <p>
+    <h5>Option 4:
         {{election.option4}}
-      </p>
+      </h5>
       {{/if}}
     {{#if election.option5}}
-    <h6>Option 5:</h6>
-    <p>
+    <h5>Option 5:
         {{election.option5}}
-      </p>
+      </h5>
       {{/if}}
     {{#if election.option6}}
-    <h6>Option 6:</h6>
-    <p>
+    <h5>Option 6:
         {{election.option6}}
-      </p>
+      </h5>
       {{/if}}
     {{#if election.option7}}
-    <h6>Option 7:</h6>
-    <p>
+    <h5>Option 7:
         {{election.option7}}
-    </p>
+    </h5>
     {{/if}}
     {{#if election.option8}}
-    <h6>Option 8:</h6>
-    <p>
+    <h5>Option 8:
         {{election.option8}}
-    </p>
+    </h5>
     {{/if}}
     {{#if election.option9}}
-    <h6>Option 9:</h6>
-    <p>
+    <h5>Option 9:
         {{election.option9}}
-    </p>
+    </h5>
     {{/if}}
     <div class='buttons'>
-      <button type="submit" class="btn updateElectionButton">Edit</button>
+      <button type="submit" class="btn btn-info updateElectionButton">Edit</button>
       <button type="submit" class="btn btn-danger delete-election">Delete</button>
       <button class="index-elections btn btn-info mr-2">Back</button>
     </div>

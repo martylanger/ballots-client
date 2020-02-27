@@ -31,12 +31,15 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function () {
   $('.notices').hide()
-  $('#index').hide()
+  $('.content').hide()
+  $('.signed-in').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
   $('#notice').show()
   $('#notice').text('Signed out successfully')
   $('form').trigger('reset')
-  $('#sign-in').show()
-  $('#sign-up').show()
   store.user = null
 }
 
