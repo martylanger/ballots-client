@@ -15,13 +15,24 @@ methods and to be a useful tool for people to use for group decision-making.
 
 ## Planning Story
 
-Lorem ipsum dolor amet cloud bread letterpress squid actually, single-origin
-coffee williamsburg af poutine fingerstache austin semiotics paleo man braid
-vexillologist. Tumeric literally banjo pickled disrupt cold-pressed thundercats
-shoreditch try-hard health goth intelligentsia pop-up small batch skateboard
-farm-to-table. Meh tofu fam, direct trade tattooed stumptown etsy everyday
-carry activated charcoal. Neutra cornhole polaroid literally salvia, listicle
-tofu.
+I basically followed the schedule suggested by the GA instructors. I started
+with my wireframes, user stories, and ERD. It very quickly became apparent that
+I wouldn't be able to create the entire VB app in the timeframe provided for
+this project, so I decided to just build the capability to create an election
+and to save the actual voting mechanisms for a later date.
+
+The next step was to set up the API, which was a mostly hitchless process. When
+I began work on my client, I started by getting the authentication functions up
+and running, and then I set about getting my election CRUD in place. I worked on
+some features while I was still in this stage. With my debugging complete, I
+finished up with some styling and this here README.
+
+When I ran into trouble, I console.logged the heck out of the problem and called
+for backup only when that failed - or when the problem was unwanted page
+refreshings and I couldn't find the discrepancy without help.
+
+Really, most of the stuff worth knowing is in the introduction to this doc and
+the unsolved problems below.
 
 ### Technologies Used
 
@@ -40,13 +51,12 @@ tofu.
 - I'd like to restyle the app.
 - I'd like to make the app mobile-friendly.
 - I intend to restrict voting method options to particular methods.
-  - The execution of which methods I intend to write into my program to produce results! 
+  - The execution of which methods I intend to write into my program to produce results!
 - Eventually, I'd like to create the whole VB app!
 
 #### Wireframe
 
 ![Wireframe](https://i.imgur.com/ouxyWfd.jpg)
-[Wireframe](https://i.imgur.com/ouxyWfd.jpg)
 
 ### User Stories
 
