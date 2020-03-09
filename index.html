@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Vote Better</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+
+      <h1 class='text-center'>Vote Better</h1>
+      <div id='notice' class='notices text-center'></div>
+
+      <div class='container'>
+        <div class='row'>
+
+          <div class='col-4 border third'>
+            <form id='sign-in' class='signed-out text-center'>
+              <fieldset>
+                <legend class='text-center'>Sign in!</legend>
+                <input type="text" name="credentials[email]" placeholder="Email"><br>
+                <input type="password" name="credentials[password]" placeholder="Password"><br>
+                <input type="submit" class="btn btn-green btn-info mr-2" value="Sign in!">
+              </fieldset>
+            </form>
+            <form id="sign-up" class="signed-out text-center">
+              <fieldset>
+                <legend>Not a member? Sign up!</legend>
+                <input type="text" name="credentials[email]" placeholder="Email"><br>
+                <input type="password" name="credentials[password]" placeholder="Password"><br>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"><br>
+                <input type="submit" class="btn btn-green btn-info mr-2" value="Sign up new user">
+              </fieldset>
+            </form>
+            <form id="change-password" class="signed-in text-center">
+              <fieldset>
+                <legend>Change password</legend>
+                <input type="password" name="passwords[old]" placeholder="Old Password"><br>
+                <input type="password" name="passwords[new]" placeholder="New Password"><br>
+                <input type="submit" class="btn btn-green btn-info mr-2" value="Change Password!">
+              </fieldset>
+            </form>
+            <form id="sign-out" class="text-center signed-in sign-out">
+              <fieldset>
+                <input type="submit" class="btn btn-danger mr-2" value="Sign out">
+              </fieldset>
+            </form>
+          </div>
+
+          <div class='col-4 border third'>
+            <div>
+              <div class="nav-buttons text-center">
+                <button class="indexButton signed-in btn btn-info mr-2 q">My elections</button>
+                <button class="createElectionButton signed-in btn btn-info mr-2 q">New election</button>
+                <button class="clearElectionsButton signed-in btn btn-outline-info mr-2 q">Clear</button>
+              </div>
+            </div>
+            <form id='create-form' class='input-form text-center'>
+              <fieldset>
+                <legend class='text-center form-name'>New Election</legend>
+                <legend class='text-center'>Election name</legend>
+                <input type="text" name="name" placeholder="Election"><br>
+                <legend class='text-center'>Voting method</legend>
+                <input type="text" name="voting_method" placeholder="Voting method"><br>
+                <legend class='text-center'>Options to choose from</legend>
+                <input class='input-field' type="text" name="option1" placeholder="Option 1"><br>
+                <input class='input-field' type="text" name="option2" placeholder="Option 2"><br>
+                <input class='input-field' type="text" name="option3" placeholder="Option 3"><br>
+                <input class='input-field' type="text" name="option4" placeholder="Option 4"><br>
+                <input class='input-field' type="text" name="option5" placeholder="Option 5"><br>
+                <input class='input-field' type="text" name="option6" placeholder="Option 6"><br>
+                <input class='input-field' type="text" name="option7" placeholder="Option 7"><br>
+                <input class='input-field' type="text" name="option8" placeholder="Option 8"><br>
+                <input class='input-field' type="text" name="option9" placeholder="Option 9"><br>
+                <input class="submit-create btn btn-info mr-2" name="submit-create" type="submit" value="Submit">
+              </fieldset>
+            </form>
+            <form id='update-form' class='input-form text-center'>
+              <fieldset>
+                <legend class='text-center form-name'>Update election</legend>
+                <legend class='text-center'>Election name</legend>
+                <input type="text" name="name" placeholder="Election"><br>
+                <legend class='text-center'>Voting method</legend>
+                <input type="text" name="voting_method" placeholder="Voting method"><br>
+                <legend class='text-center'>Options to choose from</legend>
+                <input class='input-field' type="text" name="option1" placeholder="Option 1">
+                <input class='xOption' type='button' value='x'><br>
+                <input class='input-field' type="text" name="option2" placeholder="Option 2"><br>
+                <input class='input-field' type="text" name="option3" placeholder="Option 3"><br>
+                <input class='input-field' type="text" name="option4" placeholder="Option 4"><br>
+                <input class='input-field' type="text" name="option5" placeholder="Option 5"><br>
+                <input class='input-field' type="text" name="option6" placeholder="Option 6"><br>
+                <input class='input-field' type="text" name="option7" placeholder="Option 7"><br>
+                <input class='input-field' type="text" name="option8" placeholder="Option 8"><br>
+                <input class='input-field' type="text" name="option9" placeholder="Option 9"><br>
+                <input class="submit-update btn btn-info mr-2" name="submit-update" type="submit" value="Submit">
+              </fieldset>
+            </form>
+          </div>
+
+          <div class='col-4 border third'>
+            <div>
+              <div id="content" class="content signed-in"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </body>
+</html>
